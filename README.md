@@ -29,8 +29,11 @@ python <example file name>.py
 
 ---
 
-#### - Point Transforms (```point_transforms.py```):
-Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input, converted greyscale, greyscale / 2, and the XOR of consecutive frames.
+#### - Arithmetic Point Transforms (```arithmetic_point_transforms.py```):
+Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input, converted greyscale, greyscale / 2, and the absolute difference between consecutive frames.
+
+#### - Logical Point Transforms (```logical_point_transforms.py```):
+Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input, bitwise NOT of the converted greyscale, bitwise AND of the greyscale and binary circular mask, and the XOR of two consecutive frames.
 
 #### - Logarithmic Transform (```logarithmic_transform.py```):
 Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to greyscale and the logarithmic transform of the image. The parameters of the transform can be set using track bars.
