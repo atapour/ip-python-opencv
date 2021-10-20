@@ -50,9 +50,9 @@ Running this script will receive input images from a camera or a video (pass the
 
  ### Important Note:
 
-All code is provided _"as is"_ to aid learning and understanding of topics within the "Deep Learning" course.
+All code is provided _"as is"_ to aid learning and understanding of topics within the "Image Processing" course.
 
 ---
 
 Please raise an issue in this repository if you find any bugs.
-It would even be better if you submitted a pull request with a fix.
+It would even be better if you submitted a pull request with a fix or an improvement.
