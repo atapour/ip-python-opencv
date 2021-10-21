@@ -52,8 +52,16 @@ args = parser.parse_args()
 
 def logarithmic_transform(image, sigma, c):
 
-    image = c * (np.log((math.exp(sigma) - 1) * image + 1))
-    image = np.array(image, dtype = np.uint8)
+    # for i in range(0, image.shape[1]):  # image width
+    #     for j in range(0, image.shape[0]):  # image height
+
+    #         # compute logarithmic transform
+
+    #         image[j, i] = int(c * math.log(1 +
+    #                           ((math.exp(sigma) - 1) * image[j, i])))
+
+    img_log = c * np.log (image + 1)
+    image = np.array (img_log, dtype = np.uint8)
 
     return image
 # ===================================================================
