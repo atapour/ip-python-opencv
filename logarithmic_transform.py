@@ -137,6 +137,11 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         fontColor = (123,49,126)
         lineType  = 6
 
+        # convert to 3 channel for colour labels
+
+        gray_img = cv2.cvtColor(gray_img, cv2.COLOR_GRAY2BGR)
+        log_img = cv2.cvtColor(log_img, cv2.COLOR_GRAY2BGR)
+
         # overlay corresponding labels on the images
 
         cv2.putText(gray_img, 'Original Grayscale', 
