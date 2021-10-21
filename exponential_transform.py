@@ -84,8 +84,8 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
     constant = 10
     cv2.createTrackbar("constant, C", window_name, constant, 50, lambda x:x)
 
-    alpha = 10
-    cv2.createTrackbar("alpha (*0.001)", window_name, alpha, 20, lambda x:x)
+    alpha = 8
+    cv2.createTrackbar("alpha (*0.001)", window_name, alpha, 15, lambda x:x)
 
 
     while (keep_processing):
@@ -109,7 +109,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
         # parameters for rescaling the image for easier processing
 
-        scale_percent = 60 # percent of original size
+        scale_percent = 90 # percent of original size
         width = int(frame.shape[1] * scale_percent/100)
         height = int(frame.shape[0] * scale_percent/100)
         dim = (width, height)
@@ -140,6 +140,11 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         fontColor = (123,49,126)
         lineType  = 6
 
+        # convert to 3 channels for colour labels
+
+        gray_img = cv2.cvtColor(gray_img, cv2.COLOR_GRAY2BGR)
+        exp_img = cv2.cvtColor(exp_img, cv2.COLOR_GRAY2BGR)
+
         # overlay corresponding labels on the images
 
         cv2.putText(gray_img, 'Original Grayscale', 
@@ -148,7 +153,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
             fontScale,
             fontColor,
             lineType)
-        cv2.putText(exp_img, f'Exponential Transform - Alpha: {alpha}', 
+        cv2.putText(exp_img, f'Exponential Transform - C: {constant} - alpha: {alpha:.3f}', 
             bottomLeftCornerOfText, 
             font, 
             fontScale,
