@@ -50,9 +50,8 @@ args = parser.parse_args()
 # c - scaling constant
 # sigma - "gradient" co-efficient of logarithmic function
 
-def logarithmic_transform(image, sigma):
+def logarithmic_transform(image, sigma, c):
 
-    c = 255 / np.log(1 + np.max(image))
     image = c * (np.log((math.exp(sigma) - 1) * image + 1))
     image = np.array(image, dtype = np.uint8)
 
@@ -83,6 +82,8 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
     sigma = 1
     cv2.createTrackbar("sigma (*0.01)", window_name, sigma, 10, lambda x:x)
 
+    constant = 20
+    cv2.createTrackbar("constant, C", window_name, constant, 100, lambda x:x)
 
     while (keep_processing):
 
@@ -105,7 +106,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
         # parameters for rescaling the image for easier processing
 
-        scale_percent = 70 # percent of original size
+        scale_percent = 90 # percent of original size
         width = int(frame.shape[1] * scale_percent/100)
         height = int(frame.shape[0] * scale_percent/100)
         dim = (width, height)
@@ -121,11 +122,12 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         # get parameters from track bars
 
         sigma = cv2.getTrackbarPos("sigma (*0.01)", window_name) * 0.01
+        constant = cv2.getTrackbarPos("constant, C", window_name)
 
         # make a copy and exp transform it
 
         log_img = gray_img.copy()
-        log_img = logarithmic_transform(log_img, sigma)
+        log_img = logarithmic_transform(log_img, sigma, constant)
 
         # parameters for overlaying text labels on the displayed images
 
@@ -143,7 +145,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
             fontScale,
             fontColor,
             lineType)
-        cv2.putText(log_img, f'Logarithmic Transform - Sigma: {sigma}', 
+        cv2.putText(log_img, f'Logarithmic Transform - C: {constant} - Sigma: {sigma}', 
             bottomLeftCornerOfText, 
             font, 
             fontScale,
