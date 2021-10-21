@@ -55,7 +55,7 @@ def powerlaw_transform(image, gamma):
 
     # 0-255 clipping taking care of overflow
 
-    image = np.clip(np.power(image, gamma), 0, 255).astype('uint8')
+    image = np.clip((np.power(image/255, gamma))*255, 0, 255).astype('uint8')
 
     return image
 
@@ -83,7 +83,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
     # add track bar controllers for settings
 
     gamma = 100  # default - no effect on the image
-    cv2.createTrackbar("gamma, (* 0.01)", window_name, gamma, 500, lambda x:x)
+    cv2.createTrackbar("gamma, (* 0.01)", window_name, gamma, 300, lambda x:x)
 
     while (keep_processing):
 
@@ -143,7 +143,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
             fontScale,
             fontColor,
             lineType)
-        cv2.putText(gamma_img,f'Power Law Transform - Gamma: {gamma}', 
+        cv2.putText(gamma_img,f'Power Law Transform - gamma: {gamma}', 
             bottomLeftCornerOfText, 
             font, 
             fontScale,
