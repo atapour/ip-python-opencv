@@ -47,23 +47,15 @@ args = parser.parse_args()
 
 # logarithmic transform
 # image - greyscale image
-# c - scaling constant
-# sigma - "gradient" co-efficient of logarithmic function
 
-def logarithmic_transform(image, sigma, c):
+def logarithmic_transform(image):
 
-    # for i in range(0, image.shape[1]):  # image width
-    #     for j in range(0, image.shape[0]):  # image height
+    image = image / 2
+    c = 255 / np.log(1 + np.max(image))
+    log_image = c * (np.log(image + 1))
+    log_image = np.array(log_image, dtype = np.uint8)
 
-    #         # compute logarithmic transform
-
-    #         image[j, i] = int(c * math.log(1 +
-    #                           ((math.exp(sigma) - 1) * image[j, i])))
-
-    img_log = c * np.log (image + 1)
-    image = np.array (img_log, dtype = np.uint8)
-
-    return image
+    return log_image
 # ===================================================================
 
 # define video capture object
@@ -84,14 +76,6 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
     # create window by name
 
     cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
-
-    # add track bar controllers for settings
-
-    sigma = 1
-    cv2.createTrackbar("sigma (*0.01)", window_name, sigma, 10, lambda x:x)
-
-    constant = 20
-    cv2.createTrackbar("constant, C", window_name, constant, 100, lambda x:x)
 
     while (keep_processing):
 
@@ -114,7 +98,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
         # parameters for rescaling the image for easier processing
 
-        scale_percent = 90 # percent of original size
+        scale_percent = 70 # percent of original size
         width = int(frame.shape[1] * scale_percent/100)
         height = int(frame.shape[0] * scale_percent/100)
         dim = (width, height)
@@ -127,15 +111,9 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
         gray_img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-        # get parameters from track bars
-
-        sigma = cv2.getTrackbarPos("sigma (*0.01)", window_name) * 0.01
-        constant = cv2.getTrackbarPos("constant, C", window_name)
-
         # make a copy and exp transform it
 
-        log_img = gray_img.copy()
-        log_img = logarithmic_transform(log_img, sigma, constant)
+        log_img = logarithmic_transform(gray_img)
 
         # parameters for overlaying text labels on the displayed images
 
@@ -158,7 +136,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
             fontScale,
             fontColor,
             lineType)
-        cv2.putText(log_img, f'Logarithmic Transform - C: {constant} - Sigma: {sigma}', 
+        cv2.putText(log_img, f'Logarithmic Transform', 
             bottomLeftCornerOfText, 
             font, 
             fontScale,
