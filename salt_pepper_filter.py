@@ -1,6 +1,6 @@
 # ===================================================================
 
-# Example : point transforms on a video file or live camera stream
+# Example : salt and pepper noise removal on a video file or live camera stream
 # specified on the command line (e.g. python salt_pepper_filter.py video_file)
 # or from an attached web camera by not assigning path to a video file.
 
@@ -51,7 +51,7 @@ cap = cv2.VideoCapture()
 
 # define display window name
 
-window_name = "Live Camera Input"  # window name
+window_name = "Live Camera Input - Noise Removal"  # window name
 
 # if command line arguments are provided try to read video_file
 # otherwise default to capture from attached H/W camera
