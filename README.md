@@ -44,7 +44,7 @@ Running this script will receive input images from a camera or a video (pass the
 #### - Power Law Transform - Gamma Correction (```gamma_correction.py```):
 Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input and the power law transform of the image [gamma correction]. The parameters of the transform can be set using track bars.
 
-#### - Gaussian Noise Removal - Mean and Median Filtering (```gaussian_noise_filter.py```):
+#### - Gaussian Noise Removal - Mean and Median Filtering (```gaussian_noise_removal.py```):
 Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input, Gaussian noise added to the input image, the mean filter applied to the image and the median filter applied to the image. The neighbourhood size of the filters can be set using the track bar.
 
 #### - Salt and Pepper Noise Removal - Mean and Median Filtering (```salt_pepper_filter.py```):
