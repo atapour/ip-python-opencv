@@ -1,8 +1,8 @@
 # ===================================================================
 
 # Example : logarithmic transform on a video file or live camera stream
-# specified on the command line (e.g. python logarithmic_transform.py video_file) or from an
-# attached web camera
+# specified on the command line (e.g. python logarithmic_transform.py video_file)
+# or from an attached web camera
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
