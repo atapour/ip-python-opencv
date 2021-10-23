@@ -50,7 +50,7 @@ cap = cv2.VideoCapture()
 
 # define display window name
 
-window_name = "Live Camera Input"  # window name
+window_name = "Live Camera Input - Arithmetic Transforms"  # window name
 
 # if command line arguments are provided try to read video_file
 # otherwise default to capture from attached H/W camera
