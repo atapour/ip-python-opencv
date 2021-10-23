@@ -1,6 +1,6 @@
 # ===================================================================
 
-# Example : point transforms on a video file or live camera stream
+# Example : logical point transforms on a video file or live camera stream
 # specified on the command line (e.g. python logical_point_transforms.py video_file)
 # or from an attached web camera
 
@@ -51,7 +51,7 @@ cap = cv2.VideoCapture()
 
 # define display window name
 
-window_name = "Live Camera Input"  # window name
+window_name = "Live Camera Input - Logical Transforms"  # window name
 
 # if command line arguments are provided try to read video_file
 # otherwise default to capture from attached H/W camera
