@@ -1,7 +1,7 @@
 # ===================================================================
 
-# Example : point transforms on a video file or live camera stream
-# specified on the command line (e.g. python laplacian.py video_file)
+# Example : laplacian edge sharpening on a blurred video file or live camera
+# stream specified on the command line (e.g. python laplacian.py video_file)
 # or from an attached web camera by not assigning path to a video file.
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
@@ -25,7 +25,7 @@ keep_processing = True
 # parse command line arguments for camera ID or video file
 
 parser = argparse.ArgumentParser(
-    description='Perform non-local means filtering on camera/video image with added noise')
+    description='Perform Laplacian Edge Sharpening on camera/video image with added noise')
 
 parser.add_argument(
     "--camera",
