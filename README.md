@@ -47,9 +47,17 @@ Running this script will receive input images from a camera or a video (pass the
 #### - Gaussian Noise Removal - Mean and Median Filtering (```gaussian_noise_filter.py```):
 Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input, Gaussian noise added to the input image, the mean filter applied to the image and the median filter applied to the image. The neighbourhood size of the filters can be set using the track bar.
 
-
 #### - Salt and Pepper Noise Removal - Mean and Median Filtering (```salt_pepper_filter.py```):
 Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input, Salt and Pepper noise added to the input image, the mean filter applied to the image and the median filter applied to the image. The neighbourhood size of the filters can be set using the track bar.
+
+#### - Laplacian Edge Sharpening (```laplacian.py```):
+Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input, Gaussian smoothing applied to the input image, the Laplacian of the image and the blurred image edge sharpened using the Laplacian.
+
+#### - Bilateral Filtering (```bilateral_filter.py```):
+Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input, the Mean filter, the Gaussian filter and the Bilateral Filter applied to the image. The neighbourhood size of the mean and the Gaussian filters as well as the standard deviation of the Gaussian and the Bilateral Filters can be set using the track bar.
+
+#### - Non-Local Means Filtering (```nlm_filter.py```):
+Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input with Salt and Pepper noise added to it, the Mean filter, the Gaussian filter and the Non-Local Mean Filter applied to the noisy image so the noise can be removed. The neighbourhood size of the mean and the Gaussian filters as well as the standard deviation of the Gaussian and the strength of the Non-Local Means Filters can be set using the track bar.
 
 ---
 
