@@ -59,6 +59,16 @@ Running this script will receive input images from a camera or a video (pass the
 #### - Non-Local Means Filtering (```nlm_filter.py```):
 Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input with Salt and Pepper noise added to it, the Mean filter, the Gaussian filter and the Non-Local Mean Filter applied to the noisy image so the noise can be removed. The neighbourhood size of the mean and the Gaussian filters as well as the standard deviation of the Gaussian and the strength of the Non-Local Means Filters can be set using the track bar.
 
+#### - Simple Contrast Stretching (```contrast_stretching.py```):
+Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, the histogram of the input, the output with its contrast stretched and the histogram of the contrast stretched output. 
+
+#### - Contrast Equalisation (```equalise_histogram.py```):
+Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, the histogram of the input, the output with its histogram equalised and the histogram of the histogram equalised output. 
+
+
+#### - CLAHE Equalisation (```equalise_clahe.py```):
+Running this script will perform contrast limited adaptive histogram equalisation(CLAHE). The script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, the histogram of the input, the output after it is clahe equalised and the histogram of the clahe equalised output. Parameters of CLAHE equalisation can be set using track bars.
+
 ---
 
  ### Important Note:
