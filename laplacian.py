@@ -63,8 +63,6 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
     cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
 
-    # add some track bar controllers for settings for gaussian filter
-
     while (keep_processing):
 
         # if video file or camera successfully open then read frame from video
