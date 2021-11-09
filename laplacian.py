@@ -25,7 +25,7 @@ keep_processing = True
 # parse command line arguments for camera ID or video file
 
 parser = argparse.ArgumentParser(
-    description='Perform Laplacian Edge Sharpening on camera/video image with added noise')
+    description='Perform Laplacian Edge Sharpening on blurred camera/video image.')
 
 parser.add_argument(
     "--camera",
