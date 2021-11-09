@@ -65,9 +65,14 @@ Running this script will receive input images from a camera or a video (pass the
 #### - Contrast Equalisation (```equalise_histogram.py```):
 Running this script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, the histogram of the input, the output with its histogram equalised and the histogram of the histogram equalised output. 
 
-
 #### - CLAHE Equalisation (```equalise_clahe.py```):
-Running this script will perform contrast limited adaptive histogram equalisation(CLAHE). The script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, the histogram of the input, the output after it is clahe equalised and the histogram of the clahe equalised output. Parameters of CLAHE equalisation can be set using track bars.
+Running this script will perform contrast limited adaptive histogram equalisation (CLAHE). The script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, the histogram of the input, the output after it is clahe equalised and the histogram of the clahe equalised output. Parameters of CLAHE equalisation can be set using track bars.
+
+#### - Fourier Magnitude Spectrum (```fourier.py```):
+Running this script will apply the Fourier Transform to an image and display the fourier magnitude spectrum. The script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, along with the Fourier magnitude spectrum of the image.
+
+#### - Band-Pass Filtering (```bandpass-filter-fourier.py```):
+Running this script will apply the Fourier Transform to an image and perform the bandpass filtering. The script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, along with the mask that is meant to be applied to the Fourier magnitude spectrum of the image, the filter Fourier spectrum and the final filtered image brought back to the spatial domain.
 
 ---
 
