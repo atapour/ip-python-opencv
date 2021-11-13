@@ -17,9 +17,11 @@ import cv2
 import argparse
 import math
 import numpy as np
+import warnings
 
 # ===================================================================
 
+warnings.filterwarnings("ignore")
 keep_processing = True
 
 # parse command line arguments for camera ID or video file
@@ -100,10 +102,6 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
     nheight = cv2.getOptimalDFTSize(height)
     nwidth = cv2.getOptimalDFTSize(width)
-
-    # max radius for the band-pass filter
-
-    max_radius = np.sqrt(pow(height, 2) + pow(width, 2))
 
     # settings for track bars
 
