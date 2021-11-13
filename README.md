@@ -72,7 +72,19 @@ Running this script will perform contrast limited adaptive histogram equalisatio
 Running this script will apply the Fourier Transform to an image and display the fourier magnitude spectrum. The script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, along with the Fourier magnitude spectrum of the image.
 
 #### - Band-Pass Filtering (```bandpass-filter-fourier.py```):
-Running this script will apply the Fourier Transform to an image and perform the bandpass filtering. The script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, along with the mask that is meant to be applied to the Fourier magnitude spectrum of the image, the filter Fourier spectrum and the final filtered image brought back to the spatial domain.
+Running this script will apply the Fourier Transform to an image and perform the band pass filtering. The script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale, along with the mask that is meant to be applied to the Fourier magnitude spectrum of the image, the filter Fourier spectrum and the final filtered image brought back to the spatial domain.
+
+#### - High/Low-Pass Filtering (```low-high-pass-filter-fourier.py```):
+Running this script will apply the Fourier Transform to an image and perform both the high and low pass filtering. The script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original RGB, original input converted to grayscale, along with the high pass filter applied to the Fourier spectrum, the low pass filter applied to the Fourier spectrum, the final high pass filtered image brought back to the spatial domain and the final low pass filtered image brought back to the spatial domain. The radius of the filters can be determined using a track bar.
+
+#### - Butterworth High/Low-Pass Filtering (```butterworth-low-high-pass-filter.py```):
+Running this script will apply the Fourier Transform to an image and perform both the Butterworth high and low pass filtering. The script will receive input images from a camera or a video (pass the path to the video as an argument) and display the original input converted to grayscale and the Fourier spectrum along with the Butterworth high pass filter applied to the Fourier spectrum, the Butterworth low pass filter applied to the Fourier spectrum, the final high pass filtered image brought back to the spatial domain and the final low pass filtered image brought back to the spatial domain. The radius and order of the Butterworth filters can be set using track bars.
+
+#### - Correlation - Template Matching (```correlation_template_matching.py```):
+Running this script will apply template matching to images received from a camera (or a video). The user is asked draw a box on the image. This box, drawn using the mouse, selects a template. This template (patch to be matched) will be displayed as part of the output. Then correlation template matching will be performed, and a box will be drawn on the closest window to the input template within the image. This essentially means the algorithm will try to track the selected box.
+
+#### - Save Video (```save_video.py```):
+Running this script will read a video from a camera and saves that video to disk. Most parameters are hard-coded and need to be changed in the code itself.
 
 ---
 
