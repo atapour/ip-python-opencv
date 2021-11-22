@@ -47,32 +47,17 @@ args = parser.parse_args()
 
 # ===================================================================
 
-# create a simple high pass filter
-
-def create_high_pass_filter(width, height, radius):
-    hp_filter = np.ones((height, width, 2), np.float32)
-    cv2.circle(hp_filter, (int(width / 2), int(height / 2)),
-               radius, (0, 0, 0), thickness=-1)
-    return hp_filter
-
-# create a simple low pass filter
-
-def create_low_pass_filter(width, height, radius):
-    lp_filter = np.zeros((height, width, 2), np.float32)
-    cv2.circle(lp_filter, (int(width / 2), int(height / 2)),
-               radius, (1, 1, 1), thickness=-1)
-    return lp_filter
-
-# ===================================================================
-
 # define video capture object
 
 print("Starting camera stream")
 cap = cv2.VideoCapture()
+colour_map =  False
 
 # define display window name
 
 window_name = "Live Camera - Colour Channels"  # window name
+
+print("USAGE: press 'c' to toggle Hue channel colour mapping")
 
 # if command line arguments are provided try to read video_file
 # otherwise default to capture from attached H/W camera
@@ -141,7 +126,21 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
         # get HSV channels separately
 
-        hue, saturation, value = cv2.split(hsv)
+        saturation = hsv[:, :, 1].copy()
+        value = hsv[:, :, 2].copy()
+
+        if (colour_map):
+                # re map S and V to top outer rim of HSV colour space
+
+            hsv[:, :, 1] = np.ones(hsv[:, :, 1].shape) * 255
+            hsv[:, :, 2] = np.ones(hsv[:, :, 1].shape) * 255
+
+            # convert the result back to BGR to produce a false colour
+            # version of hue for display
+
+            hue = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+        else:
+            hue = hsv[:, :, 0]
 
         # convert images to lab
 
@@ -149,7 +148,24 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
         # get LAB channels separately
 
-        luminance, a, b = cv2.split(lab)
+        # luminance, a, b = cv2.split(lab)
+        # get HSV channels separately
+
+        a = lab[:, :, 1].copy()
+        b = lab[:, :, 2].copy()
+
+        if (colour_map):
+                # re map S and V to top outer rim of HSV colour space
+
+            lab[:, :, 1] = np.ones(lab[:, :, 1].shape) * 255
+            lab[:, :, 2] = np.ones(lab[:, :, 1].shape) * 255
+
+            # convert the result back to BGR to produce a false colour
+            # version of hue for display
+
+            luminance = cv2.cvtColor(lab, cv2.COLOR_HSV2BGR)
+        else:
+            luminance = lab[:, :, 0]
 
         # convert back to colour for visualisation
 
@@ -158,11 +174,19 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         blue = cv2.cvtColor(blue, cv2.COLOR_GRAY2BGR)
         value = cv2.cvtColor(value, cv2.COLOR_GRAY2BGR)
         saturation = cv2.cvtColor(saturation, cv2.COLOR_GRAY2BGR)
-        luminance = cv2.cvtColor(luminance, cv2.COLOR_GRAY2BGR)
         a = cv2.cvtColor(a, cv2.COLOR_GRAY2BGR)
         b = cv2.cvtColor(b, cv2.COLOR_GRAY2BGR)
-        hue = cv2.cvtColor(hue, cv2.COLOR_GRAY2BGR)
 
+        if (colour_map == False):
+            hue = cv2.cvtColor(hue, cv2.COLOR_GRAY2BGR)
+            luminance = cv2.cvtColor(luminance, cv2.COLOR_GRAY2BGR)
+        else:             
+            red[:,:,0] = 0
+            red[:,:,1] = 0
+            green[:,:,0] = 0
+            green[:,:,2] = 0
+            blue[:,:,2] = 0
+            blue[:,:,1] = 0
         # overlay corresponding labels on the images
 
         cv2.putText(rgb, 'Input', 
@@ -267,7 +291,8 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
         if (key == ord('x')):
             keep_processing = False
-
+        elif (key == ord('c')):
+            colour_map = not(colour_map)
     # close all windows
 
     cv2.destroyAllWindows()
