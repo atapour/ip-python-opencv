@@ -90,6 +90,8 @@ Running this script will visualise the different colour channels in the RGB, HSV
 #### - Colour Object Tracking (```colour-object-tracking.py```):
 Running this script will perform colour object tracking on images received from a camera (or a video). The user is asked draw a box on the image. This box, drawn using the mouse, selects a patch. This patch will be displayed as part of the output. Then object tracking will be performed, and a box will be drawn on the closest window to the input patch within the image. This essentially means the algorithm will track the selected box. This tracking is based on the [Mean Shift](https://docs.opencv.org/3.4/d7/d00/tutorial_meanshift.html) Algorithm.
 
+#### - Compression Artefacts (```compression-artefacts.py```):
+Running this script will demonstrate the artefacts introduced by compression techniques. This is done for both JPG and PNG compression. Quality of the compression is controlled via track bars. The script will demonstrate the original input, the compressed results and the absolute difference between the original input and the compressed input is also displayed so the amount of noise is shown. The noise can be amplified using the amplification parameter set through the track bar for better viewing.
 
 #### - Save Video (```save_video.py```):
 Running this script will read a video from a camera and saves that video to disk. Most parameters are hard-coded and need to be changed in the code itself.
