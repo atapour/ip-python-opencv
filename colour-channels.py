@@ -57,7 +57,7 @@ colour_map =  False
 
 window_name = "Live Camera - Colour Channels"  # window name
 
-print("USAGE: press 'c' to toggle Hue channel colour mapping")
+print("USAGE: press 'c' to toggle some colour mapping!")
 
 # if command line arguments are provided try to read video_file
 # otherwise default to capture from attached H/W camera
