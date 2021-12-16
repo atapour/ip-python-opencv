@@ -53,9 +53,7 @@ def powerlaw_transform(image, gamma):
     # compute power-law transform
     # not defined for pixel = 0 (!)
 
-    # 0-255 clipping taking care of overflow
-
-    image = np.clip((np.power(image/255, gamma))*255, 0, 255).astype('uint8')
+    image = ((np.power(image/255, gamma))*255).astype('uint8')
 
     return image
 
