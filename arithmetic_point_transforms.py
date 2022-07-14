@@ -6,7 +6,7 @@
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2021 Amir Atapour Abarghouei
+# Copyright (c) 2022 Amir Atapour Abarghouei
 
 # based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
 # License : LGPL - http://www.gnu.org/licenses/lgpl.html
@@ -115,7 +115,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         # dividing the grayscale image by half
         half = gray // 2
 
-        # keeping the old frame to enable XOR operation
+        # keeping the old frame to enable difference operation
 
         if old_frame is not None:
             diff_frame = cv2.absdiff(gray, old_frame)
