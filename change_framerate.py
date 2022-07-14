@@ -1,7 +1,7 @@
 # ===================================================================
 
 # Example : change the framerate on a video file or live camera stream
-# specified on the command line (e.g. python salt_pepper_filter.py video_file)
+# specified on the command line (e.g. python change_framerate.py video_file)
 # or from an attached web camera by not assigning path to a video file.
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
