@@ -47,9 +47,6 @@ args = parser.parse_args()
 print("Starting camera stream")
 cap = cv2.VideoCapture()
 
-
-
-
 # define display window name
 
 window_name = "Live Camera Input - Framerate"  # window name
@@ -68,7 +65,12 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
     # add some track bar controllers for settings
 
-    framerate = cam_fps - 20
+    if(cam_fps > 20):
+        framerate = cam_fps - 5
+    else:
+        framerate = 1
+        cam_fps = 30
+
     cv2.createTrackbar(
         "FPS",
         window_name,
