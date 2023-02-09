@@ -205,9 +205,9 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         # It can also be set to detect specific key strokes by recording which
         # key is pressed
 
-        # e.g. if user presses "x" then exit
+        # e.g. if user presses "q" then exit
 
-        if (key == ord('x')):
+        if (key == ord('q')):
             keep_processing = False
 
     # close all windows
