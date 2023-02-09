@@ -116,7 +116,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         bottomLeftCornerOfText = (10,height-15)
         fontScale = 1
         fontColor = (123,49,126)
-        lineType  = 6
+        lineType  = 5
 
         # rescale image
 
@@ -194,15 +194,20 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
         # *******************************
 
+        # stop the timer and convert to milliseconds
+        # (to see how long processing and display takes)
+
+        stop_t = ((cv2.getTickCount() - start_t) /
+                cv2.getTickFrequency()) * 1000
+
+        label = ('Processing time: %.2f ms' % stop_t) + \
+            (' (Max Frames per Second (fps): %.2f' % (1000 / stop_t)) + ')'
+        cv2.putText(output, label, (0, 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255))
+
         # display image
 
         cv2.imshow(window_name, output)
-        
-        # stop the timer and convert to ms. (to see how long processing and
-        # display takes)
-
-        stop_t = ((cv2.getTickCount() - start_t) /
-                  cv2.getTickFrequency()) * 1000
 
         # start the event loop - essential
 
@@ -221,9 +226,9 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         # It can also be set to detect specific key strokes by recording which
         # key is pressed
 
-        # e.g. if user presses "x" then exit
+        # e.g. if user presses "q" then exit
 
-        if (key == ord('x')):
+        if (key == ord('q')):
             keep_processing = False
 
     # close all windows
@@ -232,5 +237,10 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
 else:
     print("No video file specified or camera connected.")
+
+# ===================================================================
+
+# Author : Amir Atapour-Abarghouei
+# Copyright (c) 2023 Dept Computer Science, Durham University, UK
 
 # ===================================================================
