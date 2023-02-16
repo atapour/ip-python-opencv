@@ -6,10 +6,10 @@
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2021 Amir Atapour Abarghouei
+# Copyright (c) 2023 Amir Atapour Abarghouei
 
 # based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
-# License : LGPL - http://www.gnu.org/licenses/lgpl.html
+# License : MIT - https://opensource.org/license/mit/
 
 # ===================================================================
 
@@ -208,5 +208,10 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
 else:
     print("No video file specified or camera connected.")
+
+# ===================================================================
+
+# Author : Amir Atapour-Abarghouei
+# Copyright (c) 2023 Dept Computer Science, Durham University, UK
 
 # ===================================================================
