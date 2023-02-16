@@ -9,7 +9,7 @@
 # Copyright (c) 2021 Amir Atapour Abarghouei
 
 # based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
-# License : LGPL - http://www.gnu.org/licenses/lgpl.html
+# License : MIT - https://opensource.org/license/mit/
 
 # ===================================================================
 
