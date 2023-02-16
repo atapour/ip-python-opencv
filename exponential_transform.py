@@ -6,16 +6,15 @@
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2021 Amir Atapour Abarghouei
+# Copyright (c) 2023 Amir Atapour Abarghouei
 
 # based on : https://github.com/tobybreckon/python-examples-ip/blob/master/exponential.py
-# License : LGPL - http://www.gnu.org/licenses/lgpl.html
+# License : MIT - https://opensource.org/license/mit/
 
 # ===================================================================
 
 import cv2
 import argparse
-import sys
 import math
 
 # ===================================================================
