@@ -9,7 +9,7 @@
 # Copyright (c) 2021 Amir Atapour Abarghouei
 
 # based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
-# License : LGPL - http://www.gnu.org/licenses/lgpl.html
+# License : MIT - https://opensource.org/license/mit/
 
 # ===================================================================
 
@@ -136,7 +136,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         bottomLeftCornerOfText = (10,height-15)
         fontScale = 1
         fontColor = (123,49,126)
-        lineType  = 6
+        lineType  = 4
 
         # rescale image
 
@@ -262,26 +262,28 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         im_2 = cv2.hconcat([magnitude_spectrum_normalised, filtered_img_normalised])
         output = cv2.vconcat([im_1, im_2])
 
+        # quit instruction label
+        
+        label = "press 'q' to quit"
+        cv2.putText(output, label, (output.shape[1] - 140, 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (123,49,126))
+
         # *******************************
+
+        # stop the timer and convert to milliseconds
+        # (to see how long processing and display takes)
+
+        stop_t = ((cv2.getTickCount() - start_t) /
+                cv2.getTickFrequency()) * 1000
+
+        label = ('Processing time: %.2f ms' % stop_t) + \
+            (' (Max Frames per Second (fps): %.2f' % (1000 / stop_t)) + ')'
+        cv2.putText(output, label, (10, 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255))
 
         # display image
 
         cv2.imshow(window_name, output)
-        
-        # stop the timer and convert to ms. (to see how long processing and
-        # display takes)
-
-        stop_t = ((cv2.getTickCount() - start_t) /
-                  cv2.getTickFrequency()) * 1000
-
-        # start the event loop - essential
-
-        # cv2.waitKey() is a keyboard binding function (argument is the time in
-        # ms). It waits for specified milliseconds for any keyboard event.
-        # If you press any key in that time, the program continues.
-        # If 0 is passed, it waits indefinitely for a key stroke.
-        # (bitwise and with 0xFF to extract least significant byte of
-        # multi-byte response)
 
         # wait 40ms or less depending on processing time taken (i.e. 1000ms /
         # 25 fps = 40 ms)
@@ -291,9 +293,9 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         # It can also be set to detect specific key strokes by recording which
         # key is pressed
 
-        # e.g. if user presses "x" then exit
+        # e.g. if user presses "q" then exit
 
-        if (key == ord('x')):
+        if (key == ord('q')):
             keep_processing = False
 
     # close all windows
@@ -302,5 +304,10 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
 else:
     print("No video file specified or camera connected.")
+
+# ===================================================================
+
+# Amir Atapour-Abarghouei
+# Copyright (c) 2023 Dept Computer Science, Durham University, UK
 
 # ===================================================================
