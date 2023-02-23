@@ -211,7 +211,7 @@ else:
 
 # ===================================================================
 
-# Author : Amir Atapour-Abarghouei
+# Amir Atapour-Abarghouei
 # Copyright (c) 2023 Dept Computer Science, Durham University, UK
 
 # ===================================================================
