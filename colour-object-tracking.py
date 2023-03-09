@@ -1,18 +1,19 @@
 # ===================================================================
 
-# Example: perform colour object tracking on a video file or live camera stream
-# specified on the command line (e.g. python colour-object-tracking.py video_file)
-# or from an attached web camera by not assigning path to a video file.
+# Example: perform colour object tracking on a video file or live
+# camera stream specified on the command line
+# (e.g. python colour-object-tracking.py video_file)
+# or from an attached web camera by not assigning path to a video.
 # This script takes advantage of the mean-shift algorithm.
 
-# Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
+# Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2021 Amir Atapour Abarghouei
+# Copyright (c) 2023 Amir Atapour Abarghouei
 
 # based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
 # and : https://docs.opencv.org/3.4/d7/d00/tutorial_meanshift.html
 
-# License : LGPL - http://www.gnu.org/licenses/lgpl.html
+# License : MIT - https://opensource.org/license/mit/
 
 # ===================================================================
 
@@ -324,26 +325,28 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
             output = cv2.hconcat([frame, mask])
 
-        # # *******************************
-
-        # # display image
-
-        cv2.imshow(window_name, output)
+        # quit instruction label
         
-        # stop the timer and convert to ms. (to see how long processing and
-        # display takes)
+        label = "press 'q' to quit"
+        cv2.putText(output, label, (output.shape[1] - 140, 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (123,49,126))
+
+        # *******************************
+
+        # stop the timer and convert to milliseconds
+        # (to see how long processing and display takes)
 
         stop_t = ((cv2.getTickCount() - start_t) /
-                  cv2.getTickFrequency()) * 1000
+                cv2.getTickFrequency()) * 1000
 
-        # start the event loop - essential
+        label = ('Processing time: %.2f ms' % stop_t) + \
+            (' (Max Frames per Second (fps): %.2f' % (1000 / stop_t)) + ')'
+        cv2.putText(output, label, (10, 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255))
 
-        # cv2.waitKey() is a keyboard binding function (argument is the time in
-        # ms). It waits for specified milliseconds for any keyboard event.
-        # If you press any key in that time, the program continues.
-        # If 0 is passed, it waits indefinitely for a key stroke.
-        # (bitwise and with 0xFF to extract least significant byte of
-        # multi-byte response)
+        # display image
+
+        cv2.imshow(window_name, output)
 
         # wait 40ms or less depending on processing time taken (i.e. 1000ms /
         # 25 fps = 40 ms)
@@ -353,9 +356,9 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         # It can also be set to detect specific key strokes by recording which
         # key is pressed
 
-        # e.g. if user presses "x" then exit
+        # e.g. if user presses "q" then exit
 
-        if (key == ord('x')):
+        if (key == ord('q')):
             keep_processing = False
 
     # close all windows
@@ -364,5 +367,10 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
 else:
     print("No video file specified or camera connected.")
+
+# ===================================================================
+
+# Author : Amir Atapour-Abarghouei
+# Copyright (c) 2023 Dept Computer Science, Durham University, UK
 
 # ===================================================================
