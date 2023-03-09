@@ -83,6 +83,8 @@ Running this script will apply the Fourier Transform to an image and perform bot
 #### - Correlation - Template Matching (```correlation_template_matching.py```):
 Running this script will apply template matching to images received from a camera (or a video). The user is asked draw a box on the image. This box, drawn using the mouse, selects a template. This template (patch to be matched) will be displayed as part of the output. Then correlation template matching will be performed, and a box will be drawn on the closest window to the input template within the image. This essentially means the algorithm will try to track the selected box.
 
+#### - Harry Potter's Cloak of Invisibility (```chroma-keying-harry-potter.py```):
+Running this script will present a demonstration of how [chroma keying](https://en.wikipedia.org/wiki/Chroma_key) is used in the movie and entertainment industry. This demo will require some chroma keying material (e.g. green fabric) to be used as the cloak. This script is part of the open day demonstrations at Durham University. The full demo can be found [here](https://github.com/atapour/harry-potter-demo/): [https://github.com/atapour/harry-potter-demo/](https://github.com/atapour/harry-potter-demo/)
 
 #### - Visualising Colour Spaces (```colour-channels.py```):
 Running this script will visualise the different colour channels in the RGB, HSV and CIELAB colour spaces. The script will separate the channels and display all three channels of all three colour spaces in a grid. Pushing the key 'c' will toggle colour mapping onto some of the colour channels.
