@@ -6,7 +6,7 @@
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2022 Amir Atapour Abarghouei
+# Copyright (c) 2024 Amir Atapour Abarghouei
 
 # License : LGPL - http://www.gnu.org/licenses/lgpl.html
 
@@ -14,7 +14,6 @@
 
 import cv2
 import argparse
-import math
 
 # ===================================================================
 
@@ -117,7 +116,13 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
             fontScale,
             fontColor,
             lineType)
-
+         
+        # quit instruction label
+        
+        label = "press 'q' to quit"
+        cv2.putText(frame, label, (frame.shape[1] - 140, 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (123,49,126))
+           
         # *******************************
 
         # display image
@@ -136,9 +141,9 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         # The loop can be set to detect specific key strokes by recording which
         # key is pressed
 
-        # e.g. if user presses "x" then exit
+        # e.g. if user presses "q" then exit
 
-        if (key == ord('x')):
+        if (key == ord('q')):
             keep_processing = False
 
     # close all windows
@@ -147,5 +152,10 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
 else:
     print("No video file specified or camera connected.")
+
+# ===================================================================
+
+# Amir Atapour-Abarghouei
+# Copyright (c) 2024 Dept Computer Science, Durham University, UK
 
 # ===================================================================

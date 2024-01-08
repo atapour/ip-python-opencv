@@ -7,7 +7,7 @@
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2023 Amir Atapour Abarghouei
+# Copyright (c) 2024 Amir Atapour Abarghouei
 
 # License : MIT - https://opensource.org/license/mit/
 
