@@ -6,7 +6,7 @@
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2021 Amir Atapour Abarghouei
+# Copyright (c) 2024 Amir Atapour Abarghouei
 
 # based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
 # License : LGPL - http://www.gnu.org/licenses/lgpl.html
@@ -145,27 +145,27 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
         # overlay corresponding labels on the images
 
-        cv2.putText(frame, 'Original Input', 
-            bottomLeftCornerOfText, 
-            font, 
+        cv2.putText(frame, 'Original Input',
+            bottomLeftCornerOfText,
+            font,
             fontScale,
             fontColor,
             lineType)
-        cv2.putText(noisy_guass, 'Gaussian Noise', 
-            bottomLeftCornerOfText, 
-            font, 
+        cv2.putText(noisy_guass, 'Gaussian Noise',
+            bottomLeftCornerOfText,
+            font,
             fontScale,
             fontColor,
             lineType)
-        cv2.putText(mean_img, f'Mean Filter {neighbourhood}x{neighbourhood}', 
-            bottomLeftCornerOfText, 
-            font, 
+        cv2.putText(mean_img, f'Mean Filter {neighbourhood}x{neighbourhood}',
+            bottomLeftCornerOfText,
+            font,
             fontScale,
             fontColor,
             lineType)
-        cv2.putText(median_img, f'Median Filter {neighbourhood}x{neighbourhood}', 
-            bottomLeftCornerOfText, 
-            font, 
+        cv2.putText(median_img, f'Median Filter {neighbourhood}x{neighbourhood}',
+            bottomLeftCornerOfText,
+            font,
             fontScale,
             fontColor,
             lineType)
@@ -176,26 +176,28 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         im_2 = cv2.hconcat([mean_img, median_img])
         output = cv2.vconcat([im_1, im_2])
 
+        # quit instruction label
+        
+        label = "press 'q' to quit"
+        cv2.putText(output, label, (output.shape[1] - 150, 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (123,49,126))
+
         # *******************************
+
+        # stop the timer and convert to milliseconds
+        # (to see how long processing and display takes)
+
+        stop_t = ((cv2.getTickCount() - start_t) /
+                cv2.getTickFrequency()) * 1000
+
+        label = ('Processing time: %.2f ms' % stop_t) + \
+            (' (Max Frames per Second (fps): %.2f' % (1000 / stop_t)) + ')'
+        cv2.putText(output, label, (10, 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255))
 
         # display image
 
         cv2.imshow(window_name, output)
-        
-        # stop the timer and convert to ms. (to see how long processing and
-        # display takes)
-
-        stop_t = ((cv2.getTickCount() - start_t) /
-                  cv2.getTickFrequency()) * 1000
-
-        # start the event loop - essential
-
-        # cv2.waitKey() is a keyboard binding function (argument is the time in
-        # ms). It waits for specified milliseconds for any keyboard event.
-        # If you press any key in that time, the program continues.
-        # If 0 is passed, it waits indefinitely for a key stroke.
-        # (bitwise and with 0xFF to extract least significant byte of
-        # multi-byte response)
 
         # wait 40ms or less depending on processing time taken (i.e. 1000ms /
         # 25 fps = 40 ms)
@@ -216,5 +218,10 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
 else:
     print("No video file specified or camera connected.")
+
+# ===================================================================
+
+# Amir Atapour-Abarghouei
+# Copyright (c) 2024 Dept Computer Science, Durham University, UK
 
 # ===================================================================
