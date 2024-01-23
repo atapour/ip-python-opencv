@@ -6,7 +6,7 @@
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2021 Amir Atapour Abarghouei
+# Copyright (c) 2024 Amir Atapour Abarghouei
 
 # based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
 # License : LGPL - http://www.gnu.org/licenses/lgpl.html
@@ -192,6 +192,12 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         im_2 = cv2.hconcat([gaussian_img, bilateral_img])
         output = cv2.vconcat([im_1, im_2])
 
+        # quit instruction label
+        
+        label = "press 'q' to quit"
+        cv2.putText(output, label, (output.shape[1] - 150, 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (123,49,126))
+
         # *******************************
 
         # stop the timer and convert to milliseconds
@@ -202,21 +208,12 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
         label = ('Processing time: %.2f ms' % stop_t) + \
             (' (Max Frames per Second (fps): %.2f' % (1000 / stop_t)) + ')'
-        cv2.putText(output, label, (0, 20),
+        cv2.putText(output, label, (10, 20),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255))
 
         # display image
 
         cv2.imshow(window_name, output)
-
-        # start the event loop - essential
-
-        # cv2.waitKey() is a keyboard binding function (argument is the time in
-        # ms). It waits for specified milliseconds for any keyboard event.
-        # If you press any key in that time, the program continues.
-        # If 0 is passed, it waits indefinitely for a key stroke.
-        # (bitwise and with 0xFF to extract least significant byte of
-        # multi-byte response)
 
         # wait 40ms or less depending on processing time taken (i.e. 1000ms /
         # 25 fps = 40 ms)
@@ -241,6 +238,6 @@ else:
 # ===================================================================
 
 # Author : Amir Atapour-Abarghouei
-# Copyright (c) 2023 Dept Computer Science, Durham University, UK
+# Copyright (c) 2024 Dept Computer Science, Durham University, UK
 
 # ===================================================================
