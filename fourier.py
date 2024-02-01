@@ -6,7 +6,7 @@
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2023 Amir Atapour Abarghouei
+# Copyright (c) 2024 Amir Atapour Abarghouei
 
 # based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
 # License : MIT - https://opensource.org/license/mit/
@@ -191,7 +191,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
         output = cv2.hconcat([gray_frame, magnitude_spectrum_normalized])
 
         # quit instruction label
-        
+
         label = "press 'q' to quit"
         cv2.putText(output, label, (output.shape[1] - 140, 20),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (123,49,126))
@@ -236,6 +236,6 @@ else:
 # ===================================================================
 
 # Amir Atapour-Abarghouei
-# Copyright (c) 2023 Dept Computer Science, Durham University, UK
+# Copyright (c) 2024 Dept Computer Science, Durham University, UK
 
 # ===================================================================
