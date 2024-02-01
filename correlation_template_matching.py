@@ -1,14 +1,14 @@
 # ===================================================================
 
-# Example : perform template matching via correlation on a video file or live camera stream
-# specified on the command line (e.g. python correlation_template_matching.py video_file)
+# Example : perform template matching via correlation on a video file 
+# or live camera stream specified on the command line
+# (e.g. python correlation_template_matching.py video_file)
 # or from an attached web camera by not assigning path to a video file.
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2023 Amir Atapour Abarghouei
+# Copyright (c) 2024 Amir Atapour Abarghouei
 
-# based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
 # License : MIT - https://opensource.org/license/mit/
 
 # ===================================================================
@@ -227,7 +227,7 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
                 lineType)
 
         # quit instruction label
-        
+
         label = "press 'q' to quit"
         cv2.putText(output, label, (output.shape[1] - 140, 20),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (123,49,126))
@@ -268,5 +268,10 @@ if (((args.video_file) and (cap.open(str(args.video_file))))
 
 else:
     print("No video file specified or camera connected.")
+
+# ===================================================================
+
+# Amir Atapour-Abarghouei
+# Copyright (c) 2024 Dept Computer Science, Durham University, UK
 
 # ===================================================================
