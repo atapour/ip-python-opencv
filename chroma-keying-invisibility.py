@@ -1,15 +1,14 @@
 # ===================================================================
 
 # Example : perform chroma-keying to create the cloak of invisibility
-# as seen in Harry Potter movies - this includes chroma keying as well
-# as a convex hull operation around the foreground and feathered
-# blending for compositing
+# this includes chroma keying as well as a convex hull operation 
+# around the foreground and feathered blending for compositing
 
 # Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2023 Amir Atapour Abarghouei
+# Copyright (c) 2024 Amir Atapour Abarghouei
 
-# based on : https://github.com/atapour/harry-potter-demo/
+# based on : https://github.com/atapour/invisible-me
 # License : MIT - https://opensource.org/license/mit/
 
 # ===================================================================
@@ -256,6 +255,6 @@ while (keep_processing):
 # ===================================================================
 
 # Author : Amir Atapour-Abarghouei
-# Copyright (c) 2023 Dept Computer Science, Durham University, UK
+# Copyright (c) 2024 Dept Computer Science, Durham University, UK
 
 # ===================================================================
