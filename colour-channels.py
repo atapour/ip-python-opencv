@@ -1,7 +1,7 @@
 # ===================================================================
 
-# Example: display channels of different colour spaces on a 
-# video file or live  camera stream specified on the command line 
+# Example: display channels of different colour spaces on a
+# video file or live  camera stream specified on the command line
 # (e.g. python colour-channels.py video_file)
 # or from an attached web camera by not assigning path to a video file.
 
@@ -306,6 +306,6 @@ else:
 # ===================================================================
 
 # Author : Amir Atapour-Abarghouei
-# Copyright (c) 2023 Dept Computer Science, Durham University, UK
+# Copyright (c) 2024 Dept Computer Science, Durham University, UK
 
 # ===================================================================

@@ -8,7 +8,7 @@
 
 # Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2023 Amir Atapour Abarghouei
+# Copyright (c) 2024 Amir Atapour Abarghouei
 
 # based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
 # and : https://docs.opencv.org/3.4/d7/d00/tutorial_meanshift.html
@@ -371,6 +371,6 @@ else:
 # ===================================================================
 
 # Author : Amir Atapour-Abarghouei
-# Copyright (c) 2023 Dept Computer Science, Durham University, UK
+# Copyright (c) 2024 Dept Computer Science, Durham University, UK
 
 # ===================================================================
