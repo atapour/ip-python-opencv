@@ -1,14 +1,14 @@
 # ===================================================================
 
-# Example : view jpeg adn png compression artefacts on a video file or live camera
-# stream specified on the command line (e.g. python jpeg-compression.py video_file)
-# or from an attached web camera by not assigning path to a video file.
+# Example : view jpeg adn png compression artefacts on a video file 
+# or live camera stream specified on the command line 
+# (e.g. python jpeg-compression.py video_file)
+# or from an attached web camera by not assigning path to a video.
 
-# Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
+# Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
 
-# Copyright (c) 2023 Amir Atapour Abarghouei
+# Copyright (c) 2024 Amir Atapour Abarghouei
 
-# based on : https://github.com/tobybreckon/python-examples-ip/blob/master/skeleton.py
 # License : MIT - https://opensource.org/license/mit/
 
 # ===================================================================
@@ -251,6 +251,6 @@ else:
 # ===================================================================
 
 # Author : Amir Atapour-Abarghouei
-# Copyright (c) 2023 Dept Computer Science, Durham University, UK
+# Copyright (c) 2024 Dept Computer Science, Durham University, UK
 
 # ===================================================================
